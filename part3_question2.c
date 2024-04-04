@@ -5,15 +5,30 @@
 
 #define MAX 32
 // the below function will tell if there is a unique character in the selected element in string 1
-int unique_char (char ch1, char s2[]) {
-	int i = 0;
-	
-	for (i = 0; s2[i] != '\0'; i++) {
-		if (ch1 != s2[i]) {
-			return 1;
+void remove_char(char s1[], char s2[]) {
+	int len1 = 0, len2 = 0, i = 0, j = 0, n = 0;
+
+	for (i = 0; i < s1[i]; i++){
+	}
+	len1 = i;
+
+	for (i = 0; i < s2[i]; i++){
+	}
+	len2 = i;
+
+	for (i = 0; i < len1; i++) {
+		for (j = 0; j < len2; j++) {
+			if (s1[i] == s2[j]) {
+				for (n = 0; n < len1; n++) {
+					s1[n] = s1[n + 1];
+				}
+				len1--;
+				i--;
+			}
 		}
 	}
-	return 0;
+
+	s1[len1] = '\0';
 }
 
 int main () {
@@ -21,15 +36,18 @@ int main () {
 	int i = 0;
 	
 	printf("String1: ");
-	scanf("%s", str1); getchar();
+	fgets(str1, MAX, stdin); 
+	//scanf("%99s", str1); getchar();
 		
 	printf("String2: ");
-	scanf("%s", str2); getchar();
+	fgets(str2, MAX, stdin);
 	
-//	for (i = 0; str1[i] != '\0'; i++) {
-//		if (unique_char(str1[i], str2) == 1) {
-//			printf("%c", str1[i]);
-//		}
-//	}
+	remove_char(str1, str2);
 	
+
+	printf("%s", str1);
 }
+
+
+
+
